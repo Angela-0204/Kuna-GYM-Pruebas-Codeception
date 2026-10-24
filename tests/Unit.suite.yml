@@ -1,0 +1,21 @@
+actor: UnitTester
+modules:
+    enabled:
+        - Asserts
+        - Db:
+            dsn: 'mysql:host=localhost;dbname=gym_app_test'
+            user: 'root'
+            password: ''
+            dump: 'src/Conex/gym_app.sql'
+            populate: false
+            cleanup: false
+            populator: 'C:\xampp\mysql\bin\mysql.exe -u $user -e "DROP DATABASE IF EXISTS $dbname; CREATE DATABASE $dbname CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;" && C:\xampp\mysql\bin\mysql.exe -u $user $dbname < $dump'
+            databases:
+                seguridad:
+                    dsn: 'mysql:host=localhost;dbname=gym_seguridad_test'
+                    user: 'root'
+                    password: ''
+                    dump: 'src/Conex/gym_seguridad.sql'
+                    populate: false
+                    cleanup: false
+                    populator: 'C:\xampp\mysql\bin\mysql.exe -u $user -e "DROP DATABASE IF EXISTS $dbname; CREATE DATABASE $dbname CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;" && C:\xampp\mysql\bin\mysql.exe -u $user $dbname < $dump'
